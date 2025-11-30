@@ -2,7 +2,7 @@
   "name": "codestructview",
   "displayName": "CodeStructView",
   "description": "代码结构视图 - 在活动栏显示代码结构，点击后在右侧面板查看详细结构",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "publisher": "odinsam",
   "engines": {
     "vscode": "^1.74.0"

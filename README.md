@@ -1,6 +1,6 @@
 # CodeStructView
 
-![Version](https://img.shields.io/badge/version-1.0.1-blue.svg)
+![Version](https://img.shields.io/badge/version-1.0.2-blue.svg)
 ![VS Code](https://img.shields.io/badge/VS%20Code-1.74.0+-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 ![TypeScript](https://img.shields.io/badge/TypeScript-4.9.4-blue.svg)
