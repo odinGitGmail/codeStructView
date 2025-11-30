@@ -1,0 +1,246 @@
+{
+  "name": "codestructview",
+  "displayName": "CodeStructView",
+  "description": "代码结构视图 - 在活动栏显示代码结构，点击后在右侧面板查看详细结构",
+  "version": "1.0.1",
+  "publisher": "odinsam",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/odinsam/vse_code-struct-view.git"
+  },
+  "icon": "assets/avatar.png",
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "codeStructViewContainer",
+          "title": "代码结构",
+          "icon": "assets/activeBaricon.png"
+        }
+      ]
+    },
+    "views": {
+      "codeStructViewContainer": [
+        {
+          "id": "codeStructView",
+          "name": "结构",
+          "when": "true"
+        },
+        {
+          "id": "codeMarkView",
+          "name": "标记",
+          "when": "true"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "codeStructView.showPanel",
+        "title": "显示代码结构面板",
+        "icon": "$(symbol-structure)"
+      },
+      {
+        "command": "codeStructView.refresh",
+        "title": "刷新",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "codeStructView.markNode",
+        "title": "标记",
+        "icon": "$(bookmark)"
+      },
+      {
+        "command": "codeStructView.markNodeRed",
+        "title": "🔴 红色"
+      },
+      {
+        "command": "codeStructView.markNodeGreen",
+        "title": "🟢 绿色"
+      },
+      {
+        "command": "codeStructView.markNodeYellow",
+        "title": "🟡 黄色"
+      },
+      {
+        "command": "codeStructView.markNodeBlue",
+        "title": "🔵 蓝色"
+      },
+      {
+        "command": "codeStructView.markNodePurple",
+        "title": "🟣 紫色"
+      },
+      {
+        "command": "codeStructView.removeMark",
+        "title": "无",
+        "icon": "$(close)"
+      },
+      {
+        "command": "codeStructView.clearAllMarks",
+        "title": "清空所有标记"
+      },
+      {
+        "command": "codeStructView.createConfigFile",
+        "title": "新增配置文件"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "codeStructView.showPanel",
+          "when": "view == codeStructView",
+          "group": "navigation"
+        },
+        {
+          "command": "codeStructView.refresh",
+          "when": "view == codeStructView",
+          "group": "navigation"
+        },
+        {
+          "command": "codeStructView.createConfigFile",
+          "when": "view == codeStructView",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "codeStructView.refresh",
+          "when": "view == codeStructView",
+          "group": "inline"
+        },
+        {
+          "submenu": "codeStructView.markSubmenu",
+          "when": "view == codeStructView && viewItem == codeElement.method",
+          "group": "1_modification"
+        },
+        {
+          "command": "codeStructView.clearAllMarks",
+          "when": "view == codeStructView",
+          "group": "2_modification"
+        }
+      ],
+      "codeStructView.markSubmenu": [
+        {
+          "command": "codeStructView.removeMark",
+          "when": "view == codeStructView"
+        },
+        {
+          "command": "codeStructView.markNodeRed",
+          "when": "view == codeStructView"
+        },
+        {
+          "command": "codeStructView.markNodeGreen",
+          "when": "view == codeStructView"
+        },
+        {
+          "command": "codeStructView.markNodeYellow",
+          "when": "view == codeStructView"
+        },
+        {
+          "command": "codeStructView.markNodeBlue",
+          "when": "view == codeStructView"
+        },
+        {
+          "command": "codeStructView.markNodePurple",
+          "when": "view == codeStructView"
+        }
+      ]
+    },
+    "submenus": [
+      {
+        "id": "codeStructView.markSubmenu",
+        "label": "标记"
+      }
+    ],
+    "configuration": {
+      "title": "代码结构视图",
+      "properties": {
+        "codeStructView.nodeDecorationRules": {
+          "type": "array",
+          "default": [],
+          "description": "节点装饰规则配置，用于为特定节点设置背景色",
+          "items": {
+            "type": "object",
+            "properties": {
+              "nodeTypes": {
+                "type": "array",
+                "description": "节点类型列表（可选），例如：[\"class\", \"method\", \"property\"]",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "class",
+                    "interface",
+                    "method",
+                    "property",
+                    "variable",
+                    "function",
+                    "namespace",
+                    "enum",
+                    "constructor",
+                    "field",
+                    "module"
+                  ]
+                }
+              },
+              "accessModifiers": {
+                "type": "array",
+                "description": "访问修饰符列表（可选），例如：[\"public\", \"private\"]",
+                "items": {
+                  "type": "string",
+                  "enum": [
+                    "public",
+                    "private",
+                    "protected",
+                    "internal",
+                    ""
+                  ]
+                }
+              },
+              "namePattern": {
+                "type": "string",
+                "description": "节点名称匹配规则（可选），支持正则表达式，例如：\"^Get.*\" 匹配以Get开头的节点"
+              },
+              "hasComment": {
+                "type": "boolean",
+                "description": "是否匹配有注释的节点（可选）"
+              },
+              "color": {
+                "type": "string",
+                "description": "装饰颜色（十六进制颜色值），例如：\"#ff0000\"（红色）或 \"#00ff00\"（绿色）",
+                "pattern": "^#[0-9A-Fa-f]{6}$",
+                "patternErrorMessage": "颜色值必须是十六进制格式，例如：#ff0000"
+              },
+              "tooltip": {
+                "type": "string",
+                "description": "工具提示文本（可选）"
+              }
+            },
+            "required": [
+              "color"
+            ]
+          },
+          "markdownDescription": "配置节点装饰规则，用于为满足特定条件的节点设置特殊的背景色。\n\n**示例配置：**\n\n```json\n[\n  {\n    \"nodeTypes\": [\"class\"],\n    \"color\": \"#ff6b6b\",\n    \"tooltip\": \"类节点\"\n  },\n  {\n    \"nodeTypes\": [\"method\"],\n    \"accessModifiers\": [\"public\"],\n    \"color\": \"#4ecdc4\",\n    \"tooltip\": \"公共方法\"\n  },\n  {\n    \"namePattern\": \"^Get.*\",\n    \"color\": \"#ffe66d\",\n    \"tooltip\": \"Get方法\"\n  },\n  {\n    \"hasComment\": true,\n    \"color\": \"#a8e6cf\",\n    \"tooltip\": \"有注释的节点\"\n  }\n]\n```"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.74.0",
+    "@types/node": "16.x",
+    "typescript": "^4.9.4"
+  }
+}

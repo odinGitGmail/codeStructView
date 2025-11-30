@@ -1,0 +1,218 @@
+﻿{
+    "iconDefinitions": {
+        "_lock_file_dark": {
+            "iconPath": "./images/json.svg"
+        },
+        "_wxml_file_dark": {
+            "iconPath": "./images/wxml.svg"
+        },
+        "_vue_file_dark": {
+            "iconPath": "./images/vue.svg"
+        },
+        "_lit_file_dark": {
+            "iconPath": "./images/lit.svg"
+        },
+        "_ini_file_dark": {
+            "iconPath": "./images/ini.svg"
+        },
+        "_svg_file_dark": {
+            "iconPath": "./images/svg.svg"
+        },
+        "_sql_file_dark": {
+            "iconPath": "./images/sql.svg"
+        },
+        "_ico_file_dark": {
+            "iconPath": "./images/ico.svg"
+        },
+        "_map_file_dark": {
+            "iconPath": "./images/map.svg"
+        },
+        "_css_file_dark": {
+            "iconPath": "./images/css.svg"
+        },
+        "_html_file_dark": {
+            "iconPath": "./images/htm.svg"
+        },
+        "_pic_file_dark": {
+            "iconPath": "./images/gif.svg"
+        },
+        "_eslint_file_dark": {
+            "iconPath": "./images/eslint.svg"
+        },
+        "_xlsm_file_dark": {
+            "iconPath": "./images/xlsm.svg"
+        },
+        "_pem_file_dark": {
+            "iconPath": "./images/pem.svg"
+        },
+        "_key_file_dark": {
+            "iconPath": "./images/key.svg"
+        },
+        "_p12_file_dark": {
+            "iconPath": "./images/p12.svg"
+        },
+        "_db_file_dark": {
+            "iconPath": "./images/db.svg"
+        },
+        "_sass_file_dark": {
+            "iconPath": "./images/sass.svg"
+        },
+        "_less_file_dark": {
+            "iconPath": "./images/less.svg"
+        },
+        "_tsx_file_dark": {
+            "iconPath": "./images/tsx.svg"
+        },
+        "_jsx_file_dark": {
+            "iconPath": "./images/jsx.svg"
+        },
+        "_ts_file_dark": {
+            "iconPath": "./images/ts.svg"
+        },
+        "_js_file_dark": {
+            "iconPath": "./images/js.svg"
+        },
+        "_yml_file_dark": {
+            "iconPath": "./images/yml.svg"
+        },
+        "_markdown_file_dark": {
+            "iconPath": "./images/markdown.svg"
+        },
+        "_txt_file_dark": {
+            "iconPath": "./images/txt.svg"
+        },
+        "_png_file_dark": {
+            "iconPath": "./images/png.svg"
+        },
+        "_powershell_file_dark": {
+            "iconPath": "./images/powershell.svg"
+        },
+        "_git_file_dark": {
+            "iconPath": "./images/git.svg"
+        },
+        "_docker_file_dark": {
+            "iconPath": "./images/docker.svg"
+        },
+        "_services_file_dark": {
+            "iconPath": "./images/services.svg"
+        },
+        "_certificate_file_dark": {
+            "iconPath": "./images/certificate.svg"
+        },
+        "_xml_file_dark": {
+            "iconPath": "./images/xml.svg"
+        },
+        "_dll_file_dark": {
+            "iconPath": "./images/dll.svg"
+        },
+        "_json_file_dark": {
+            "iconPath": "./images/json.svg"
+        },
+        "_csharp_file_dark": {
+            "iconPath": "./images/csharp.svg"
+        },
+        "_csproj_file_dark": {
+            "iconPath": "./images/csproj.svg"
+        },
+        "_folder_dark": {
+            "iconPath": "./images/folder.svg"
+        },
+        "_folder-open_dark": {
+            "iconPath": "./images/folder-open.svg"
+        },
+        "_debug_folder_dark": {
+            "iconPath": "./images/debug.svg"
+        },
+        "_bin_folder_dark": {
+            "iconPath": "./images/bin2.svg"
+        },
+        "_doc_folder_dark": {
+            "iconPath": "./images/doc_on_doc.svg"
+        },
+        "_doc_folder_fill_dark": {
+            "iconPath": "./images/doc_on_doc_fill.svg"
+        },
+        "_config_file_dark": {
+            "iconPath": "./images/json.svg"
+        },
+        "_vsix_file_dark": {
+            "iconPath": "./images/vsix.svg"
+        },
+        "_fill_file_dark": {
+            "iconPath": "./images/file.svg"
+        }
+    },
+    "file": "_fill_file_dark",
+    "fileExtensions": {
+        "lock": "_lock_file_dark",
+        "wxss": "_css_file_dark",
+        "wxml": "_wxml_file_dark",
+        "vue": "_vue_file_dark",
+        "babelrc": "_json_file_dark",
+        "editorconfig": "_ini_file_dark",
+        "ini": "_ini_file_dark",
+        "eslintignore": "_txt_file_dark",
+        "svg": "_svg_file_dark",
+        "sql": "_sql_file_dark",
+        "ico": "_ico_file_dark",
+        "icon": "_ico_file_dark",
+        "map": "_map_file_dark",
+        "css": "_css_file_dark",
+        "html": "_html_file_dark",
+        "htm": "_html_file_dark",
+        "cs": "_csharp_file_dark",
+        "sln": "_csproj_file_dark",
+        "csproj": "_csproj_file_dark",
+        "json": "_json_file_dark",
+        "conf": "_json_file_dark",
+        "config": "_json_file_dark",
+        "dll": "_dll_file_dark",
+        "xml": "_xml_file_dark",
+        "targets": "_xml_file_dark",
+        "xaml": "_xml_file_dark",
+        "props": "_xml_file_dark",
+        "dockerignore": "_docker_file_dark",
+        "gitignore": "_git_file_dark",
+        "vscodeignore": "_git_file_dark",
+        "gitattributes": "_git_file_dark",
+        "ps1": "_powershell_file_dark",
+        "png": "_png_file_dark",
+        "txt": "_txt_file_dark",
+        "md": "_markdown_file_dark",
+        "yml": "_yml_file_dark",
+        "yaml": "_yml_file_dark",
+        "js": "_js_file_dark",
+        "mjs": "_js_file_dark",
+        "ts": "_ts_file_dark",
+        "jsx": "_jsx_file_dark",
+        "tsx": "_tsx_file_dark",
+        "less": "_less_file_dark",
+        "sass": "_sass_file_dark",
+        "db": "_db_file_dark",
+        "p12": "_p12_file_dark",
+        "pem": "_pem_file_dark",
+        "key": "_key_file_dark",
+        "xls": "_xlsm_file_dark",
+        "xlsx": "_xlsm_file_dark",
+        "jslint": "_eslint_file_dark",
+        "eslint": "_eslint_file_dark",
+        "jpg": "_pic_file_dark",
+        "jpeg": "_pic_file_dark",
+        "gif": "_pic_file_dark",
+        "vsix": "_vsix_file_dark"
+    },
+    "fileNames": {
+        "LICENSE": "_lit_file_dark",
+        "Dockerfile": "_docker_file_dark"
+    },
+    "folder": "_folder_dark",
+    "folderExpanded": "_folder-open_dark",
+    "folderNames": {
+        ".vscode": "_folder_dark",
+        "debug": "_debug_folder_dark"
+    },
+    "folderNamesExpanded": {
+        ".vscode": "_folder-open_dark",
+        "debug": "_debug_folder_dark"
+    }
+}

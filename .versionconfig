@@ -1,0 +1,20 @@
+{
+  "files": [
+    {
+      "path": "package.json",
+      "versionRegex": "\"version\"\\s*:\\s*\"([\\d.]+)\"",
+      "description": "vue 项目版本号"
+    },
+    {
+      "path": "README.md",
+      "versionRegex": "!\\[Version\\]\\(https://img\\.shields\\.io/badge/version-([\\d.]+)-blue\\.svg\\)",
+      "description": "README 版本徽章"
+    },
+    {
+      "path": "xxx/xxx.csproj",
+      "versionRegex": "<Version>([\\d.]+)</Version>",
+      "description": ".NETCore Server 项目版本号"
+    }
+  ]
+}
+
