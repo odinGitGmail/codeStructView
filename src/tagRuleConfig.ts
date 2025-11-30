@@ -173,7 +173,30 @@ export class TagRuleConfig {
         }
 
         // 去除注释符号和空格
-        const cleanedComment = comment.trim().toLowerCase();
+        let cleanedComment = comment.trim();
+        
+        // 移除开头的空格
+        while (cleanedComment.startsWith(' ')) {
+            cleanedComment = cleanedComment.substring(1).trim();
+        }
+        
+        // 移除开头的斜杠（包括多个连续的斜杠）
+        while (cleanedComment.startsWith('/')) {
+            cleanedComment = cleanedComment.substring(1).trim();
+        }
+        
+        // 移除开头的星号（包括多个连续的星号）
+        while (cleanedComment.startsWith('*')) {
+            cleanedComment = cleanedComment.substring(1).trim();
+        }
+        
+        // 再次移除可能残留的开头空格
+        while (cleanedComment.startsWith(' ')) {
+            cleanedComment = cleanedComment.substring(1).trim();
+        }
+        
+        // 转为小写用于匹配
+        cleanedComment = cleanedComment.toLowerCase();
         
         // 检查每个规则
         for (const rule of TagRuleConfig.tagRules) {

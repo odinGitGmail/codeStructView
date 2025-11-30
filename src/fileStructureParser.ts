@@ -271,14 +271,25 @@ export class FileStructureParser {
             if (line.includes('/*')) {
                 let comment = '';
                 for (let j = i; j <= lineIndex && j < lines.length; j++) {
-                    const commentLine = lines[j].trim();
+                    let commentLine = lines[j].trim();
                     if (commentLine.includes('*/')) {
-                        comment += commentLine.substring(0, commentLine.indexOf('*/'));
-                        break;
+                        commentLine = commentLine.substring(0, commentLine.indexOf('*/'));
                     }
-                    if (j === i) {
-                        comment += commentLine.substring(commentLine.indexOf('/*') + 2);
-                    } else {
+                    // 移除开头的星号（多行注释的中间行通常以 * 开头）
+                    while (commentLine.startsWith('*')) {
+                        commentLine = commentLine.substring(1).trim();
+                    }
+                    // 移除开头的斜杠（如果还有）
+                    while (commentLine.startsWith('/')) {
+                        commentLine = commentLine.substring(1).trim();
+                    }
+                    // 移除开头的空格
+                    while (commentLine.startsWith(' ')) {
+                        commentLine = commentLine.substring(1).trim();
+                    }
+                    if (j === i && commentLine.includes('/*')) {
+                        comment += commentLine.substring(commentLine.indexOf('/*') + 2).trim();
+                    } else if (commentLine) {
                         comment += ' ' + commentLine;
                     }
                 }

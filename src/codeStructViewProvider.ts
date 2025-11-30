@@ -1622,21 +1622,18 @@ export class CodeStructViewProvider implements vscode.TreeDataProvider<TreeNode>
         try {
             const entries = await fs.promises.readdir(dirPath, { withFileTypes: true });
             
-            // 过滤掉隐藏文件和常见忽略目录
+            // 过滤掉常见忽略目录
             const filteredEntries = entries.filter(entry => {
                 const name = entry.name;
                 // 确保 name 是有效的字符串
                 if (!name || typeof name !== 'string' || name.length === 0) {
                     return false;
                 }
-                // 忽略隐藏文件（以 . 开头，但保留 .vscode 等配置目录）
-                if (name.startsWith('.') && name !== '.vscode' && name !== '.git') {
-                    return false;
-                }
                 // 忽略常见构建目录
                 if (name === 'node_modules' || name === 'out' || name === 'dist' || name === 'build') {
                     return false;
                 }
+                // 允许显示所有文件，包括以 . 开头的隐藏文件
                 return true;
             });
 
@@ -1823,7 +1820,7 @@ export class CodeStructViewProvider implements vscode.TreeDataProvider<TreeNode>
         } else if (element.type === CodeElementType.Variable) {
             // 变量节点（包括方法描述、方法参数、方法返回、参数等）
             if (element.comment) {
-                // 清理注释：移除开头的空格、斜线和空格+斜线
+                // 清理注释：移除开头的空格、斜线、星号和空格+斜线+星号
                 let comment = element.comment.trim();
                 console.log(`[formatCodeElementLabel] 变量节点 ${element.name} 原始注释: "${comment}"`);
                 
@@ -1834,6 +1831,11 @@ export class CodeStructViewProvider implements vscode.TreeDataProvider<TreeNode>
                 
                 // 移除开头的斜线（包括多个连续的斜线）
                 while (comment.startsWith('/')) {
+                    comment = comment.substring(1).trim();
+                }
+                
+                // 移除开头的星号（包括多个连续的星号）
+                while (comment.startsWith('*')) {
                     comment = comment.substring(1).trim();
                 }
                 
@@ -1849,7 +1851,7 @@ export class CodeStructViewProvider implements vscode.TreeDataProvider<TreeNode>
                 }
             }
         } else {
-            // 其他元素显示注释（确保没有开头的空格和斜杠）
+            // 其他元素显示注释（确保没有开头的空格、斜杠和星号）
             if (element.comment) {
                 let comment = element.comment.trim();
                 console.log(`[formatCodeElementLabel] 其他节点 ${element.name} 原始注释: "${comment}"`);
@@ -1861,6 +1863,11 @@ export class CodeStructViewProvider implements vscode.TreeDataProvider<TreeNode>
                 
                 // 移除开头的斜线（包括多个连续的斜线）
                 while (comment.startsWith('/')) {
+                    comment = comment.substring(1).trim();
+                }
+                
+                // 移除开头的星号（包括多个连续的星号）
+                while (comment.startsWith('*')) {
                     comment = comment.substring(1).trim();
                 }
                 

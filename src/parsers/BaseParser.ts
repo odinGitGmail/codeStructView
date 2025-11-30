@@ -24,8 +24,8 @@ export abstract class BaseParser implements IParser {
     }
 
     /**
-     * 清理注释内容，移除所有开头的空格和斜杠
-     * 只过滤开头的空格和斜杠，中间和结尾的保留
+     * 清理注释内容，移除所有开头的空格、斜杠和星号
+     * 只过滤开头的空格、斜杠和星号，中间和结尾的保留
      */
     private cleanComment(comment: string): string {
         if (!comment) {
@@ -44,6 +44,11 @@ export abstract class BaseParser implements IParser {
         
         // 移除开头的斜杠（包括多个连续的斜杠）
         while (cleaned.startsWith('/')) {
+            cleaned = cleaned.substring(1).trim();
+        }
+        
+        // 移除开头的星号（包括多个连续的星号）
+        while (cleaned.startsWith('*')) {
             cleaned = cleaned.substring(1).trim();
         }
         
